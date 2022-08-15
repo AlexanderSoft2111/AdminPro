@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
@@ -12,6 +12,7 @@ import { PagesComponent } from './pages.component';
 import { AccoutSettingsComponent } from './accout-settings/accout-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RjxsComponent } from './rjxs/rjxs.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
@@ -24,7 +25,8 @@ import { RjxsComponent } from './rjxs/rjxs.component';
     PagesComponent,
     AccoutSettingsComponent,
     PromesasComponent,
-    RjxsComponent
+    RjxsComponent,
+    PerfilComponent
   ],
   exports: [
     DashboardComponent,
@@ -39,7 +41,8 @@ import { RjxsComponent } from './rjxs/rjxs.component';
     FormsModule,
     SharedModule,
     RouterModule,
-    ComponentsModule
+    ComponentsModule,
+    ReactiveFormsModule
   ]
 })
 export class PagesModule { }
