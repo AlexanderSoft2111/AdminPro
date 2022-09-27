@@ -14,3 +14,31 @@
     width: 200px;
     height: 200px;
 }
+
+.wi-100{
+    width: 100px;
+}
+
+.wi-140{
+    width: 140px;
+}
+
+
+.avatar{
+    width: 30px;
+    border-radius: 100%;
+}
+
+.fondo-modal{
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    z-index: 9999;
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+}
+
+.ocultar-modal{
+    display: none;
+}

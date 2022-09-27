@@ -13,6 +13,7 @@ import { AccoutSettingsComponent } from './accout-settings/accout-settings.compo
 import { PromesasComponent } from './promesas/promesas.component';
 import { RjxsComponent } from './rjxs/rjxs.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 
 
 
@@ -26,7 +27,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     AccoutSettingsComponent,
     PromesasComponent,
     RjxsComponent,
-    PerfilComponent
+    PerfilComponent,
+    UsuariosComponent
   ],
   exports: [
     DashboardComponent,

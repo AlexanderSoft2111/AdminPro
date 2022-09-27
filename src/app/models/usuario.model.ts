@@ -16,11 +16,11 @@ export class Usuario {
 
     get imgUrl(){
 
-        if(this.img?.includes('https://')){
+        if(!this.img){
+            return `${base_url}/uploads/usuarios/no-image`;
+        } else if(this.img?.includes('https://')){
             return this.img;
-        }
-
-        if(this.img){
+        }else if(this.img){
             //http://localhost:3005/api/uploads/medicos/e57e838e-dc27-489e-891f-5e30ce1d8aff.jpg
             return `${base_url}/uploads/usuarios/${this.img}`;
         } else {

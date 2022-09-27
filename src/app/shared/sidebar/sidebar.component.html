@@ -6,7 +6,7 @@
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
-                    <ul id="sidebarnav" *ngFor="let itemMenu of menu">
+                    <ul id="sidebarnav">
                         <li class="user-profile">
                             <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img [src]="usuario?.imgUrl" alt="user" /><span class="hide-menu">{{usuario?.nombre}}</span></a>
                             <ul aria-expanded="false" class="collapse" >
@@ -19,21 +19,23 @@
                         </li>
                         <li class="nav-devider"></li>
                         <li class="nav-small-cap">PERSONAL</li>
-                        <li> 
-                            <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
-                                <i class="mdi mdi-gauge"></i>
-                                <span class="hide-menu">{{itemMenu.titulo}} 
-                                    <span class="label label-rouded label-themecolor pull-right">{{itemMenu.subMenu.length}}</span>
-                                    </span>
-                                </a>
-                            <ul aria-expanded="false" class="collapse" *ngFor="let subMenu of itemMenu.subMenu">
-                                <li><a [routerLink]="subMenu.url"
-                                        routerLinkActive="active"
-                                        [routerLinkActiveOptions]="{exact: true}">{{subMenu.titulo}} 
+                        <ul  *ngFor="let itemMenu of menu">
+                            <li> 
+                                <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                                    <i [class]="itemMenu.icono"></i>
+                                    <span class="hide-menu">{{itemMenu.titulo}} 
+                                        <span class="label label-rouded label-themecolor pull-right">{{itemMenu.subMenu.length}}</span>
+                                        </span>
                                     </a>
-                                </li>
-                            </ul>
-                        </li>
+                                <ul aria-expanded="false" class="collapse" *ngFor="let subMenu of itemMenu.subMenu">
+                                    <li><a [routerLink]="subMenu.url"
+                                            routerLinkActive="active"
+                                            [routerLinkActiveOptions]="{exact: true}">{{subMenu.titulo}} 
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
