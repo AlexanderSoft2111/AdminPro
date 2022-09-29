@@ -12,6 +12,9 @@ import { RjxsComponent } from './rjxs/rjxs.component';
 import { AuthGuard } from '../guards/auth.guard';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
+import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 
 
 
@@ -33,7 +36,10 @@ const routes: Routes = [
       {path: 'perfil', component: PerfilComponent, data: {titulo: 'Perfil'}},
 
       //Mantenimientos
-      {path: 'usuarios', component: UsuariosComponent, data: {titulo: 'usuarios'}}
+      {path: 'usuarios', component: UsuariosComponent, data: {titulo: 'usuarios'}},
+      {path: 'hospitales', component: HospitalesComponent, data: {titulo: 'hospitales'}},
+      {path: 'medicos', component: MedicosComponent, data: {titulo: 'medicos'}},
+      {path: 'medico/:id', component: MedicoComponent, data: {titulo: 'medico'}}
     ]
   }
 ];
