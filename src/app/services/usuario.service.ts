@@ -29,6 +29,10 @@ export class UsuarioService {
     return this.usuario?.uid || '';
   }
 
+  get role(): 'ADMIN_ROLE'| 'USER_ROL'{
+    return this.usuario?.role || 'USER_ROL';
+  }
+
   get headers(){
     return {
       headers: {
@@ -51,23 +55,29 @@ export class UsuarioService {
               
   }
 
+  guardarLocalStorage(token: string, menu: any){
+    localStorage.setItem('token', token);
+    localStorage.setItem('menu', JSON.stringify(menu) );
+  }
+
   login(formData: any){
     return this.http.post(`${base_url}/login`, formData)
                 .pipe(
-                  tap((res:any) => localStorage.setItem('token', res.token))
+                  tap((res:any) => this.guardarLocalStorage(res.token, res.menu))
                 );
   }
 
   loginGoogle(token: any){
     return this.http.post(`${base_url}/login/google`, {token})
                 .pipe(
-                  tap((res:any) => localStorage.setItem('token', res.token))
+                  tap((res:any) => this.guardarLocalStorage(res.token, res.menu))
                 );
   }
 
   
   logout(){
     localStorage.removeItem('token');
+    localStorage.removeItem('menu');
     google.accounts.id.revoke('alex.tofis21@gmail.com', () => {
 
       //El gnzone se utiliza para hacer que angular no pierda el control cuando utiliza librerias de terceros para realizar una navegación como la de google
@@ -86,7 +96,7 @@ export class UsuarioService {
       }
     }).pipe( //nos permite ejecutar mas funciones dentro de una promesa
       map((res:any) => {
-        localStorage.setItem('token', res.token);
+        this.guardarLocalStorage(res.token, res.menu);
         const {nombre, email, img = '', google, uid, role} = res.usuario;
         this.usuario = new Usuario(nombre, email, '', img, role, google, uid);
         return true
